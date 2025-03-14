@@ -2,6 +2,8 @@ key.txt
 .env
 .env.params
 vector_db
+database.db
+__pycache__
 
 # Created by https://www.toptal.com/developers/gitignore/api/pycharm,visualstudiocode,jupyternotebooks,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=pycharm,visualstudiocode,jupyternotebooks,python

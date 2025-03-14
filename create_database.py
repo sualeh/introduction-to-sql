@@ -4,7 +4,7 @@ Create database schema and populate with initial data.
 
 import os
 import logging
-from sqlalchemy import text, Engine, Connection
+from sqlalchemy import text, Engine, Connection, create_engine
 
 
 # Configure logger
@@ -65,3 +65,35 @@ def create_database(engine: Engine) -> None:
     except Exception as e:
         logger.error("Error in creating database: %s", e)
         raise
+
+
+def create_sqlite_database(db_file_path: str) -> None:
+    """
+    Create a SQLite database file with schema and initial data.
+
+    Args:
+        db_file_path: Path to SQLite database file
+
+    Raises:
+        Exception: If any error occurs during database creation
+    """
+    logger.info("Creating SQLite database at: %s", db_file_path)
+    # SQLite connection string uses sqlite:/// format
+    engine = create_engine(f"sqlite:///{db_file_path}")
+    create_database(engine)
+    logger.info("SQLite database created successfully at: %s", db_file_path)
+
+
+def main() -> None:
+    """
+    Main function to create a SQLite database file.
+
+    Default to 'database.db' in current directory
+    """
+    db_path = os.path.join(os.getcwd(), "database.db")
+    create_sqlite_database(db_path)
+    print(f"Database created successfully at: {db_path}")
+
+
+if __name__ == "__main__":
+    main()

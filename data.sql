@@ -7,7 +7,7 @@ VALUES
 ('Gizmo', 19.99, 'Gadgets', 'GizmoWorks'),
 ('PowerGizmo', 29.99, 'Gadgets', 'GizmoWorks'),
 ('Camera Plus', 149.99, 'Photography', 'Pear'),
-('Clock', 203.99, 'Household', ' Clock Maker')
+('Clock', 203.99, 'Household', 'Clock Maker')
 ;
 
 INSERT INTO PURCHASES
