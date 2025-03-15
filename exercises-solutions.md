@@ -108,6 +108,19 @@ FROM
     ON Products.Product = Purchases.Product
 ```
 
+### 3.4
+```sql
+SELECT 
+  Products.Product,
+  Price
+FROM 
+  Products
+  LEFT OUTER JOIN Purchases 
+    ON Products.Product = Purchases.Product
+WHERE
+  Buyer IS NULL
+```
+
 
 ## Exercise 4 - Unions
 
