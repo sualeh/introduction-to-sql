@@ -8,9 +8,9 @@
 SELECT
   *
 FROM
-  PRODUCTS
+  Products
 WHERE
-  CATEGORY = 'Household'
+  Category = 'Household'
 ```
 
 ### 1.2
@@ -19,52 +19,62 @@ WHERE
 SELECT
   *
 FROM
-  PRODUCTS
+  Products
 WHERE
-  PRICE < 200
+  Price < 200
 ```
 
 ### 1.3
 
 ```sql
 SELECT DISTINCT
-  PRODUCT
+  Product
 FROM
-  PURCHASES
+  Purchases
 WHERE
-  SELLER = 'Fred'
+  Seller = 'Fred'
 ORDER BY
-  PRODUCT
+  Product
 ```
 
 
 ## Exercise 2 - Modifications
 
 ### 2.1
-None
-
-### 2.2
-- Add a product,
+- Add a Product
 ```sql
-INSERT INTO PRODUCTS
-  (PRODUCT, PRICE, CATEGORY, MANUFACTURER)
+INSERT INTO Products
+  (Product, Price, Category, Manufacturer)
 VALUES
   ('New Product', 14.99, 'Clothing', 'Fashion, Inc.')
 ```
-- Verify,
+- Verify
 ```sql
 SELECT
   *
 FROM
-  PRODUCTS
+  Products
 ```
-- Delete,
+
+### 2.2
+- Update
+```sql
+UPDATE Products
+SET 
+  Price = 20.99
+WHERE 
+  Product  = 'New Product'
+```
+- Verify using the `SELECT` again
+
+### 2.3
+- Delete
 ```sql
 DELETE
 FROM
-  PRODUCTS
+  Products
 WHERE
-  PRODUCT = 'New Product'
+  Product = 'New Product'
 ```
 - Verify using the `SELECT` again
 
@@ -77,17 +87,17 @@ None
 ### 3.2
 ```sql
 SELECT
-  BUYER,
-  PRODUCTS.PRODUCT,
-  PRICE
+  Buyer,
+  Products.Product,
+  Price
 FROM
-  PRODUCTS
-  INNER JOIN PURCHASES
-  ON PRODUCTS.PRODUCT = PURCHASES.PRODUCT
+  Products
+  INNER JOIN Purchases
+  ON Products.Product = Purchases.Product
 WHERE
-  SELLER = 'Fred'
+  Seller = 'Fred'
 ORDER BY
-  BUYER
+  Buyer
 ```
 
 ## Exercise 4 - Unions
@@ -104,14 +114,14 @@ None
 ### 5.2
 ```sql
 SELECT
-  SELLER,
-  SUM(PRICE) AS GROSS_SALES
+  Seller,
+  SUM(Price) AS GROSS_SALES
 FROM
-  PRODUCTS
-  INNER JOIN PURCHASES
-  ON PRODUCTS.PRODUCT = PURCHASES.PRODUCT
+  Products
+  INNER JOIN Purchases
+  ON Products.Product = Purchases.Product
 GROUP BY
-  SELLER
+  Seller
 HAVING
   GROSS_SALES > 100
 ```
