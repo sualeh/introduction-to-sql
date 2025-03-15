@@ -82,9 +82,6 @@ WHERE
 ## Exercise 3 - Joins
 
 ### 3.1
-None
-
-### 3.2
 ```sql
 SELECT
   Buyer,
@@ -99,6 +96,18 @@ WHERE
 ORDER BY
   Buyer
 ```
+
+### 3.3
+```sql
+SELECT 
+  Products.Product,
+  Buyer
+FROM 
+  Products
+  LEFT OUTER JOIN Purchases 
+    ON Products.Product = Purchases.Product
+```
+
 
 ## Exercise 4 - Unions
 
