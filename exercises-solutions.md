@@ -122,30 +122,48 @@ WHERE
 ```
 
 
-## Exercise 4 - Unions
+## Exercise 4 - Aggregates
 
 ### 4.1
-None
-
-
-## Exercise 5 - Aggregate Functions
-
-### 5.1
-None
+```sql
+SELECT
+  Seller,
+  SUM(Price) AS GrossSales
+FROM
+  Products
+  INNER JOIN Purchases
+    ON Products.Product = Purchases.Product
+GROUP BY
+  Seller
+```
 
 ### 5.2
 ```sql
 SELECT
   Seller,
-  SUM(Price) AS GROSS_SALES
+  SUM(Price) AS GrossSales
 FROM
   Products
   INNER JOIN Purchases
-  ON Products.Product = Purchases.Product
+    ON Products.Product = Purchases.Product
 GROUP BY
   Seller
 HAVING
-  GROSS_SALES > 100
+  GrossSales > 200
+```
+
+### 4.3
+```sql
+SELECT
+  Seller,
+  COUNT(*) AS NumberOfSales,
+  AVG(Price) AS AverageSalePrice
+FROM
+  Products
+  INNER JOIN Purchases
+    ON Products.Product = Purchases.Product
+GROUP BY
+  Seller
 ```
 
 
