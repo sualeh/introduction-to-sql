@@ -137,7 +137,7 @@ GROUP BY
   Seller
 ```
 
-### 5.2
+### 4.2
 ```sql
 SELECT
   Seller,
@@ -166,8 +166,3 @@ GROUP BY
   Seller
 ```
 
-
-## Exercise 6 - Data Definition Language (DDL)
-
-### 6.1
-None
